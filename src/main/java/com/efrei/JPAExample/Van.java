@@ -1,20 +1,16 @@
 package com.efrei.JPAExample;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Collection;
 
 @Entity
+@DiscriminatorValue("VAN")
 public class Van extends Vehicule{
     private int maxWeight ;
 
-    public Van(String plateNumber, Long id, Collection<Rent> rents, int maxWeight, Long id1) {
-        super(plateNumber, id, rents);
-        this.maxWeight = maxWeight;
-        this.id = id1;
+    public Van() {
+        super();
     }
 
     public int getMaxWeight() {

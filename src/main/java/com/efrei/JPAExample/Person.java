@@ -1,5 +1,7 @@
 package com.efrei.JPAExample;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -7,10 +9,7 @@ import java.util.Collection;
 public class Person {
 	private String name ;
 
-	public Person(String name, Long id, Collection<Rent> rents) {
-		this.name = name;
-		this.id = id;
-		this.rents = rents;
+	public Person() {
 	}
 
 	public String getName() {
@@ -25,6 +24,7 @@ public class Person {
 	private Long id;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	public Long getId() {
 		return id;
 	}
@@ -32,6 +32,7 @@ public class Person {
 		this.id = id;
 	}
 
+	@JsonIgnore
 	private Collection<Rent> rents;
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="person")

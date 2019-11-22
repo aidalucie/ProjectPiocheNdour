@@ -8,12 +8,7 @@ public class Rent {
     private Date beginRent;
     private Date endRent;
 
-    public Rent(Date beginRent, Date endRent, Long id, Vehicule vehicule, Person person) {
-        this.beginRent = beginRent;
-        this.endRent = endRent;
-        this.id = id;
-        this.vehicule = vehicule;
-        this.person = person;
+    public Rent() {
     }
 
     public Date getBeginRent() {

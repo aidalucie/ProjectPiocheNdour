@@ -1,8 +1,8 @@
 package com.efrei.JPAExample;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CarWebService {
@@ -19,6 +19,13 @@ public class CarWebService {
     public Iterable<Car> getCars(){
         return carRepository.findAll();
     }
+
+    @RequestMapping(value = "/cars", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void addCar(@RequestBody Car car) throws Exception{
+        carRepository.save(car);
+    }
+
 
 
 }

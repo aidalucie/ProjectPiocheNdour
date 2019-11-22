@@ -1,5 +1,7 @@
 package com.efrei.JPAExample;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -13,10 +15,7 @@ public abstract class Vehicule {
     private String plateNumber;
     private Long id;
 
-    public Vehicule(String plateNumber, Long id, Collection<Rent> rents) {
-        this.plateNumber = plateNumber;
-        this.id = id;
-        this.rents = rents;
+    public Vehicule() {
     }
 
     @Id
@@ -24,6 +23,7 @@ public abstract class Vehicule {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id ){
         this.id = id;
     }
@@ -36,6 +36,7 @@ public abstract class Vehicule {
         this.plateNumber = plateNumber;
     }
 
+    @JsonIgnore
     private Collection<Rent> rents;
 
     @OneToMany(cascade=CascadeType.ALL, mappedBy="vehicule")

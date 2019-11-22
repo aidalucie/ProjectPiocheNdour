@@ -1,19 +1,15 @@
 package com.efrei.JPAExample;
 
-import javax.persistence.Entity;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@DiscriminatorValue("CAR")
 public class Car extends Vehicule {
     private int numberOfSeats;
 
-    public Car(String plateNumber, Long id, Collection<Rent> rents, int numberOfSeats, Long id1) {
-        super(plateNumber, id, rents);
-        this.numberOfSeats = numberOfSeats;
-        this.id = id1;
+    public Car() {
+        super();
     }
 
     public int getNumberOfSeats() {
