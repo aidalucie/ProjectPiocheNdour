@@ -1,8 +1,8 @@
 package com.efrei.JPAExample;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class VanWebService {
@@ -18,6 +18,12 @@ public class VanWebService {
     @GetMapping("/vans")
     public Iterable<Van> getVans(){
         return vanRepository.findAll();
+    }
+
+    @RequestMapping(value = "/vans", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void addVan(@RequestBody Van van) throws Exception{
+        vanRepository.save(van);
     }
 
 

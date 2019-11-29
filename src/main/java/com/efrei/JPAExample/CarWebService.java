@@ -26,6 +26,12 @@ public class CarWebService {
         carRepository.save(car);
     }
 
+    @RequestMapping(value = "/cars/{plateNumber}", method = RequestMethod.PUT)
+    public void rent(@PathVariable("plateNumber") String plateNumber, @RequestParam(value="rent",
+            required = true)boolean rent){
+    }
+
+
 
 
 }

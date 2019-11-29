@@ -22,4 +22,11 @@ public class VehiculeWebService {
 	}
 
 
+	@RequestMapping(value = "/vehicules/{plateNumber}", method = RequestMethod.GET)
+	public Iterable<Vehicule> showAVehicule(@PathVariable("plateNumber") String plateNumber
+	)
+	{
+		return vehiculeRepository.findByPlateNumber(plateNumber);
+	}
+
 }

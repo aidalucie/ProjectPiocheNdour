@@ -21,10 +21,7 @@ public class RentWebService {
     }
 
     @RequestMapping(value = "/rents/{plateNumber}", method = RequestMethod.GET)
-    public Iterable<Rent> showArent(@PathVariable("plateNumber") String plateNumber//,
-                          // @RequestParam(value="rent", required = true)boolean rent,
-                          //@RequestBody Date begindate
-                          //@RequestBody Date enddate
+    public Iterable<Rent> showArent(@PathVariable("plateNumber") String plateNumber
     )
     {
       return rentRepository.findByPlateNumber(plateNumber);
