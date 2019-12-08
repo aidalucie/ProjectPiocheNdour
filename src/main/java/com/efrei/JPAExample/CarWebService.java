@@ -20,16 +20,14 @@ public class CarWebService {
         return carRepository.findAll();
     }
 
-    @RequestMapping(value = "/cars", method = RequestMethod.POST)
+    @RequestMapping(value = "/cars/{plateNumber}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void addCar(@RequestBody Car car) throws Exception{
+    public void addCar(@PathVariable("plateNumber") String plateNumber) throws Exception{
+        Car car = new Car();
+        car.setPlateNumber(plateNumber);
         carRepository.save(car);
     }
 
-    @RequestMapping(value = "/cars/{plateNumber}", method = RequestMethod.PUT)
-    public void rent(@PathVariable("plateNumber") String plateNumber, @RequestParam(value="rent",
-            required = true)boolean rent){
-    }
 
 
 
