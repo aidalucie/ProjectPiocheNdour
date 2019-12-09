@@ -1,13 +1,11 @@
-package com.efrei.JPAExample;
+package com.efrei.JPAExample.repositories;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.efrei.JPAExample.entities.Rent;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 public interface RentRepository extends CrudRepository<Rent, Long> {
 

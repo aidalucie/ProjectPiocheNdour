@@ -1,10 +1,9 @@
-package com.efrei.JPAExample;
+package com.efrei.JPAExample.webServices;
 
+import com.efrei.JPAExample.entities.Person;
+import com.efrei.JPAExample.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class PersonWebService {
@@ -19,6 +18,7 @@ public class PersonWebService {
 
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/persons")
     public Iterable<Person> getPersons(){
         return personRepository.findAll();

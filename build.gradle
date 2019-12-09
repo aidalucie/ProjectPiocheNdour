@@ -19,7 +19,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.efrei'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 11.4
 
 repositories {
 	mavenCentral()
@@ -32,4 +32,8 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime("com.h2database:h2")
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'org.apache.activemq', name: 'activemq-core', version: '5.7.0'
 }
+
+

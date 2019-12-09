@@ -1,7 +1,6 @@
-package com.efrei.JPAExample;
+package com.efrei.JPAExample.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @DiscriminatorValue("CAR")
